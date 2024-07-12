@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background: yellow;
+        }
+        #animate {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: red;
+        }
+    </style>
+    <script>
+        function move() {
+            let x = document.getElementById("options");
+            let s = x.value;
+
+            switch(s) {
+                case '1':
+                    {
+                        let id = null;
+                        const elem = document.getElementById("animate");
+                        let pos = 0;
+                        clearInterval(id);
+                        id = setInterval(frame, 10);
+                        function frame() {
+                            if (pos >= 350) {
+                                clearInterval(id);
+                            } else {
+                                pos++;
+                                elem.style.top = pos + "px";
+                                elem.style.left = pos + "px";
+                            }
+                        }
+                        break;
+                    }
+                    case '2':
+                    {
+                        let id = null;
+                        const elem = document.getElementById("animate");
+                        let pos = 0;
+                        clearInterval(id);
+                        id = setInterval(frame, 10);
+                        function frame() {
+                            if (pos >= 350) {
+                                clearInterval(id);
+                            } else {
+                                pos++;
+                                elem.style.top = pos + "px";
+                            
+                            }
+                        }
+                        break;
+                    }
+                    case '3':
+                    {
+                        let id = null;
+                        const elem = document.getElementById("animate");
+                        let pos = 0;
+                        clearInterval(id);
+                        id = setInterval(frame, 10);
+                        function frame() {
+                            if (pos >= 350) {
+                                clearInterval(id);
+                            } else {
+                                pos++;
+                                elem.style.left = pos + "px";
+                            }
+                        }
+                        break;
+                    }
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <select id="options" onchange="move()">
+        <option value=""></option>
+        <option value="1">animation1</option>
+        <option value="2">animation2</option>
+        <option value="3">animation3</option>
+    </select>
+    <div id="container">
+        <div id="animate"></div>    
+    </div>
+</body>
+</html>
